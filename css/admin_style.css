@@ -1,0 +1,364 @@
+/* ===================== ADMIN NAV ========================= */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ===================== BODY SETTINGS ========================= */
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column; /* Stack the nav and content vertically */
+  justify-content: flex-start; /* Align items at the top */
+  align-items: center; /* Center horizontally */
+  background: #c1f7f5;
+  margin: 0;
+}
+
+/* ===================== NAV LINKS ========================= */
+.nav-links {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 20px 15px;
+  border-radius: 12px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  position: sticky; /* Keep the nav at the top while scrolling */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* Ensure nav stays on top of other content */
+  width: 100%;
+  max-width: 1000px; /* Limit the nav width */
+}
+
+/* Styling for nav items */
+.nav-links li {
+  list-style: none;
+  margin: 0 12px;
+}
+
+.nav-links li a {
+  position: relative;
+  color: #333;
+  font-size: 20px;
+  font-weight: 500;
+  padding: 6px 0;
+  text-decoration: none;
+}
+
+.nav-links li a:before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 0%;
+  background: #34efdf;
+  border-radius: 12px;
+  transition: all 0.4s ease;
+}
+
+.nav-links li a:hover:before {
+  width: 100%;
+}
+
+.nav-links li.center a:before {
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nav-links li.upward a:before {
+  width: 100%;
+  bottom: -5px;
+  opacity: 0;
+}
+
+.nav-links li.upward a:hover:before {
+  bottom: 0px;
+  opacity: 1;
+}
+
+.nav-links li.forward a:before {
+  width: 100%;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s ease;
+}
+
+.nav-links li.forward a:hover:before {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* ===================== CONTAINER ========================= */
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 90%;
+  max-width: 800px;
+  margin-top: 120px; /* Adds space for the sticky nav */
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+/* Form styles */
+form {
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
+  width: 100%;
+  max-width: 600px;
+}
+
+form label {
+  display: block;
+  margin: 0px 0 0px;
+  text-align: left;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+form input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+form input[type="submit"] {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+form input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Table styles */
+.tables-section {
+  margin-top: 20px;
+}
+
+.tables-section h1 {
+  margin: 20px 0;
+  color: #333;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  background: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+table th,
+table td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #ddd;
+  font-size: 16px;
+}
+
+table th {
+  background: #f8f8f8;
+  color: #333;
+}
+
+table tr:nth-child(even) {
+  background: #f9f9f9;
+}
+
+table tr:hover {
+  background: #f1f1f1;
+}
+
+/* Checkbox styles */
+form label {
+    display: block;  /* Keep label as a block for other fields */
+    margin-bottom: 10px; /* Adjust spacing below the labels */
+    text-align: left;
+}
+
+form .checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 10px; /* Space below the checkbox section */
+}
+
+form input[type="checkbox"] {
+    margin-right: 10px; /* Space between the checkbox and the label */
+}
+
+/* Optionally, you can add styles for the checkbox itself */
+form input[type="checkbox"] {
+    transform: scale(1.2); /* Adjust size if you want the checkbox bigger */
+}
+
+
+/* ===================== RESPONSIVE DESIGN ========================= */
+@media (max-width: 600px) {
+  .container {
+    width: 100%; /* Full width on smaller screens */
+  }
+
+  form input[type="text"],
+  form input[type="email"],
+  form input[type="password"],
+  form select {
+    font-size: 14px;
+  }
+
+  form input[type="submit"] {
+    font-size: 14px;
+  }
+
+  table th,
+  table td {
+    font-size: 14px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ======================== Manage Orders Styles ============================ */
+
+/* General Table Styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+table, th, td {
+    border: 1px solid #ddd;
+}
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+th {
+    background-color: #f4f4f4;
+}
+
+/* Date Picker Form */
+.form-container {
+    margin-bottom: 20px;
+}
+.form-container input[type="date"] {
+    padding: 5px;
+    font-size: 16px;
+}
+.form-container button {
+    padding: 5px 10px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+/* Error Message */
+.error {
+    color: red;
+    font-size: 1.2em;
+}
+
+/* Status Dropdown */
+select {
+    padding: 5px;
+    font-size: 16px;
+}
+
+/* Items Ordered Layout */
+.order-items {
+    white-space: pre-line; /* Ensures each item and quantity are on a new line */
+}
+
+/* Responsive Design */
+
+/* Hide the table on small screens */
+@media screen and (max-width: 768px) {
+    table {
+        display: none; /* Hide the table on small screens */
+    }
+
+    /* Flexbox layout for orders on small screens */
+    .order-rows {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .order-row {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 20px;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        background-color: var(--order-bg-color);
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .order-row div {
+        margin-bottom: 10px;
+    }
+
+    /* Show order details in a vertical stack */
+    .order-row .order-items {
+        margin-bottom: 20px;
+    }
+}
+
+/* Hide the flexbox layout on larger screens */
+@media screen and (min-width: 769px) {
+    .order-rows {
+        display: none; /* Hide the mobile layout on larger screens */
+    }
+}
+
+/* Dynamic Box Colors */
+.order-row:nth-child(odd) {
+    --order-bg-color: #FFDDC1; /* Light peach for odd rows */
+}
+
+.order-row:nth-child(even) {
+    --order-bg-color: #D1E8E2; /* Light teal for even rows */
+}
+
+
+
+/* ======================== Manage Orders Styles ============================ */
